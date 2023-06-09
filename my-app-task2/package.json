@@ -1,0 +1,19 @@
+{
+  "name": "web_internship_lgm_task2_",
+  "version": "1.0.0",
+  "description": "Web Internship task2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehsudkhanaj/WEB_INTERNSHIP_LGM_TASK2_.git"
+  },
+  "author": "Muhammad jamshed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mehsudkhanaj/WEB_INTERNSHIP_LGM_TASK2_/issues"
+  },
+  "homepage": "https://github.com/mehsudkhanaj/WEB_INTERNSHIP_LGM_TASK2_#readme"
+}
