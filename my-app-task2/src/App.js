@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const loadUsers = async () => {
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://api.github.com/users");
+      const jsonResponse = await response.json();
+      setUsers(jsonResponse);
+    } catch (error) {
+      console.error("Error loading users:", error);
+    }
+
+    setLoading(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="heading">Second Task Fetching Data From API</h1>
+      <p className="horizontal-line"></p>
+      <button className="button" onClick={loadUsers}>Get Data</button>
+      {loading ? (
+        <div className="loader"></div>
+      ) : (
+        <div className="user-list">
+          
+          {users.map(({ id, login, avatar_url }) => (
+            <div className="user-card" key={id}>
+              <img src={avatar_url} alt={login} />
+              <div className="user-details">
+                <h3>{login}</h3>
+                <p>ID: {id}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;
